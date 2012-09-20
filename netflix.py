@@ -23,6 +23,11 @@ def make_api_request(url):
 
 resp, content = make_api_request('http://api.netflix.com/catalog/titles/index')
 
+# get all 'play' links for a TV series (this is for Futurama)
+#resp, content = make_api_request('http://api-public.netflix.com/catalog/titles/series/70153380/episodes')
+#<id>http://api-public.netflix.com/catalog/titles/programs/70228172</id>
+#http://movies.netflix.com/WiPlayer?movieid=70228171
+
 out = codecs.open('test.xml', 'w', 'utf-8')
 out.write(content)
 out.close()
