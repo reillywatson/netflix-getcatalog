@@ -4,13 +4,15 @@ import urlparse
 import codecs
 
 def make_api_request(url):
+	oauth_key = 'ha2sffzbjae3amcqqfv5twfk'
+	oauth_secret = 'Q639Mr6aHC'
 	params = {
 		'oauth_version' : '1.0',
 		'oauth_nonce' : oauth.generate_nonce(),
 		'oauth_timestamp' : int(time.time()),
 	}
-	token = oauth.Token(key='ha2sffzbjae3amcqqfv5twfk', secret='Q639Mr6aHC')
-	consumer = oauth.Consumer(key='ha2sffzbjae3amcqqfv5twfk', secret='Q639Mr6aHC')
+	token = oauth.Token(key=oauth_key, secret=oauth_secret)
+	consumer = oauth.Consumer(key=oauth_key, secret=oauth_secret)
 	params['oauth_consumer_key'] = consumer.key
 	req = oauth.Request(method="GET", url=url, parameters=params)
 	signature_method = oauth.SignatureMethod_HMAC_SHA1()
